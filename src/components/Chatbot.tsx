@@ -16,7 +16,7 @@ const Chatbot: React.FC = () => {
       id: crypto.randomUUID(),
       role: "assistant",
       content:
-        "Welcome to VinylPlugFL. I can help with wraps, decals, chrome deletes, and tints — pricing, availability, and recommendations.",
+        "Welcome to Davis Brothers Plumbing. How can we help you today? Ask about repairs, new construction, or schedule a service.",
       timestamp: Date.now(),
     },
   ]);
@@ -85,8 +85,8 @@ const Chatbot: React.FC = () => {
                 <Sparkles className="h-4 w-4 text-primary-foreground" />
               </div>
               <div className="leading-tight">
-                <div className="text-sm font-semibold tracking-wide">Concierge</div>
-                <div className="text-[11px] text-muted-foreground">VinylPlugFL</div>
+                <div className="text-sm font-semibold tracking-wide">Support</div>
+                <div className="text-[11px] text-muted-foreground">Davis Brothers</div>
               </div>
             </div>
             <button
@@ -135,7 +135,7 @@ const Chatbot: React.FC = () => {
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about wraps, tints, decals, chrome deletes, pricing or availability…"
+                placeholder="Ask about repairs, new construction, or schedule a service..."
                 rows={1}
                 className="min-h-[42px] max-h-[120px] grow resize-none rounded-xl border border-border/60 bg-[hsl(var(--popover))] px-3 py-2 text-sm outline-none ring-0 placeholder:text-muted-foreground focus:border-primary/40 focus:shadow-glow"
               />
@@ -162,19 +162,19 @@ function formatTime(ts: number) {
 
 function getAssistantReply(userText: string) {
   const t = userText.toLowerCase();
-  if (/(price|cost|starting|quote)/.test(t)) {
-    return "Full vehicle wraps start around $1,500–$1,800 depending on vehicle and material. Decals and chrome deletes are quoted by coverage, and tints vary by film and windows. Share your vehicle (year/make/model) and service, and I’ll estimate it for you.";
+  if (/(price|cost|quote)/.test(t)) {
+    return "Pricing depends on the job. We offer free estimates for new construction and competitive rates for repairs. Please describe your issue or call us for a quote.";
   }
-  if (/(book|availability|schedule|appointment|when)/.test(t)) {
-    return "We offer flexible scheduling. Tell me your preferred date/time window and service (wrap, tint, decals, or chrome delete), and I’ll check availability for Kissimmee / Central Florida.";
+  if (/(book|schedule|appointment|when)/.test(t)) {
+    return "We offer flexible scheduling across Central Florida. Call us at (954) 778-7238 to book an appointment.";
   }
-  if (/(wrap|vinyl|tint|decal|chrome)/.test(t)) {
-    return "We specialize in wraps, decals, chrome deletes, and tints using premium films (3M/Avery). Let me know your vehicle, color/finish (or tint %), and any deadlines, and I’ll recommend options.";
+  if (/(repair|leak|clog|water heater)/.test(t)) {
+    return "We handle all types of repairs including leaks, clogs, and water heater issues. We are licensed and insured (CFC1433833 | CFC1433848).";
   }
-  if (/(location|where|area|service area)/.test(t)) {
-    return "We’re based in Kissimmee, FL and serve Central Florida. Mobile options are available depending on the service and workspace.";
+  if (/(location|where|area|serve)/.test(t)) {
+    return "We are based in Orlando and serve all of Central Florida, from Altamonte Springs to Winter Springs.";
   }
-  return "Got it! To help you faster, please share your vehicle (year/make/model), the service (wrap/tint/decals/chrome delete), desired color/finish or tint %, timeframe, and budget range.";
+  return "Thanks for reaching out! To help you faster, please describe your plumbing issue or the service you need, and we'll get back to you.";
 }
 
 export default Chatbot;

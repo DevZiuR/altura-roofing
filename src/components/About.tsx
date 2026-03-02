@@ -1,7 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
-import aboutCar from "@/assets/about-car.jpeg";
+import { ArrowRight, ShieldCheck, Users } from "lucide-react";
+import aboutImg from "../assets/about-new.jpg";
 
 const About = () => {
   const scrollToContact = () => {
@@ -12,64 +11,69 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-black/95 text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
           {/* Content */}
           <div className="animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-bold font-playfair text-foreground mb-6">
-             <span className="text-primary">Driven</span> by Passion, <span className="text-primary">Defined</span> by Detail        
+            <span className="inline-block px-4 py-2 bg-primary/20 text-white rounded-full text-xs sm:text-sm font-medium mb-4">
+              WELCOME TO ALTURA ROOFING | DFW
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat text-white mb-4 sm:mb-6 uppercase">
+              ELEVATING THE STANDARD OF <br /><span className="italic font-medium font-playfair text-white">ROOFING EXCELLENCE</span>
             </h2>
 
-            <div className="prose prose-lg mb-8">
-              <p className="text-md leading-relaxed mb-6 font-inter text-muted-foreground">
-              VinylPlugFL was born from a passion for automotive excellence and an eye for impeccable detail. Based in the heart of Kissimmee, FL, we've built our reputation not on being the biggest, but on being the best. Every wrap, tint, chrome delete, and decal is applied with precision and care, because your <span className="text-primary">vehicle deserves nothing less</span>.
-              </p>
-              
-              <p className="text-md leading-relaxed mb-6 font-inter text-muted-foreground">
-              We use only <span className="text-primary">premium materials</span> and cutting-edge techniques to ensure a flawless finish that turns heads and stands the test of time. Our pride isn't just in the work we do; it's in the exclusive, elevated look we help you achieve.
-              </p>
+            {/* Mobile Image - Below Heading */}
+            <div className="lg:hidden relative rounded-xl overflow-hidden shadow-2xl w-[85%] mx-auto mb-8 h-[250px] sm:h-[350px]">
+              <img
+                src="https://i.imgur.com/M9xK214.jpeg"
+                alt="Altura Roofing"
+                className="w-full h-full object-cover rounded-xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                <div>
+                  <p className="text-white font-bold text-lg">Clear Communication. Outstanding Care.</p>
+                  <p className="text-gray-300 text-xs">Serving the entire DFW and more.</p>
+                </div>
+              </div>
             </div>
 
-            <Button 
-              size="lg" 
-              className="btn-primary text-lg px-8 py-6"
-              onClick={scrollToContact}
-            >
-              See Our Work
-            </Button>
+            <div className="prose prose-lg mb-6 sm:mb-8 text-gray-300">
+              <p className="mb-4">
+                <strong>Altura Roofing</strong> is committed to clear communication, outstanding customer care, and expert roofing solutions, offering both insurance claim expertise and simple, no-pressure cash options.
+              </p>
+              <p className="mb-4">
+                We serve the entire <strong>DFW</strong> and more. Just a call away and your roof will be taken care of at the highest level.
+              </p>
+
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto group bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-bold font-montserrat uppercase tracking-wide rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-primary/20"
+                onClick={scrollToContact}
+              >
+                WORK WITH US
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
           </div>
 
-          {/* Car Image */}
-          <div className="animate-fade-in">
-            <img 
-              src={'https://i.imgur.com/zQES4kH.jpeg'} 
-              alt="High Performance Detail luxury car detailing results" 
-              className="w-full h-auto rounded-lg shadow-elegant"
+          {/* Image */}
+          <div className="hidden lg:block relative rounded-xl overflow-hidden shadow-2xl h-full min-h-[400px]">
+            <img
+              src="https://i.imgur.com/M9xK214.jpeg"
+              alt="Altura Roofing"
+              className="w-full h-full object-cover rounded-xl"
             />
-
-            {/* Maintenance Plans CTA */}
-            {/* 
-            <Card className="card-automotive mt-8">
-              <CardContent className="p-6 text-center">
-                <MessageSquare className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold font-playfair text-foreground mb-3">Maintenance Plans Available</h3>
-                <p className="text-muted-foreground mb-4 font-inter">
-                  Consistent care is key to vehicle protection and pristine appearance. 
-                  Our weekly, bi-weekly, and monthly maintenance plans ensure your vehicle 
-                  stays protected and immaculate year-round.
-                </p>
-                <Button 
-                  variant="outline" 
-                  className="btn-outline"
-                  onClick={scrollToContact}
-                >
-                  Learn About Plans
-                </Button>
-              </CardContent>
-            </Card>
-            */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+              <div>
+                <p className="text-white font-bold text-xl">Clear Communication. Outstanding Care.</p>
+                <p className="text-gray-300 text-sm">Serving the entire DFW and more.</p>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </section>

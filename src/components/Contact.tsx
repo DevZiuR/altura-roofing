@@ -1,304 +1,269 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Mail, 
-  MessageSquare,
-  Car,
-  Calendar,
-  CheckCircle
-} from "lucide-react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 const Contact = () => {
-  const businessHours = [
-    { day: "Tuesday - Friday", hours: "9:30 AM - 6:30 PM" },
-    { day: "Saturday", hours: "8:30 AM - 5:00 PM" },
-    { day: "Sunday & Monday", hours: "Closed" },
+  const serviceOptions = [
+    "Roof Replacement",
+    "Roof Repair",
+    "Storm Damage",
+    "Insurance Claim",
+    "Emergency Repair",
+    "Inspection",
+    "Other"
   ];
 
-  const contactMethods = [
-    {
-      icon: Phone,
-      text: "(407) xxx-xxxx",
-      action: "tel:+1407xxx xxxx"
-    },
-    {
-      icon: Mail,
-      text: "info@vinylplugfl.com",
-      action: "mailto:info@vinylplugfl.com"
-    },
-    {
-      icon: MapPin,
-      text: "Kissimmee, FL"
-    }
+  const dfwAreas = [
+    "Allen", "Arlington", "Bedford", "Carrollton", "Dallas", "Denton",
+    "Fort Worth", "Frisco", "Garland", "Irving", "McKinney", "Plano",
+    "Richardson", "Other DFW Area"
   ];
 
-  const serviceTypes = [
-    "Wraps",
-    "Decals",
-    "Chrome Delete",
-    "Tints",
-    "Custom Request"
+  const propertyTypes = [
+    "Residential - Single Family",
+    "Residential - Multi-Family",
+    "Commercial",
+    "Industrial"
   ];
 
-  const handleContactClick = (action: string | null) => {
-    if (action) {
-      window.open(action, '_blank');
-    }
-  };
+  const urgencyLevels = [
+    "Emergency (24-48 hours)",
+    "Urgent (This week)",
+    "Normal (1-2 weeks)",
+    "Planning ahead"
+  ];
 
   // Reveal-on-scroll animation for contact section items
   useEffect(() => {
-    const container = document.querySelector('#contact');
-    if (!container) return;
-
-    const elements = container.querySelectorAll('.reveal-on-scroll');
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            el.classList.add('animate-fade-in', 'opacity-100', 'translate-y-0');
-            el.classList.remove('opacity-0', 'translate-y-6');
-            observer.unobserve(el);
+            entry.target.classList.add("translate-y-0", "opacity-100");
+            entry.target.classList.remove("translate-y-12", "opacity-0");
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
+    const elements = document.querySelectorAll(".animate-slide-up");
     elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => elements.forEach((el) => observer.unobserve(el));
   }, []);
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold font-playfair text-black mb-4">
-            Ready to <span className="text-primary">Elevate</span> Your Look?
+    <section id="contact" className="pb-20 lg:pb-32 pt-10 lg:pt-16 bg-slate-50 relative overflow-hidden">
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-4">
+            GET IN TOUCH
+          </span>
+          <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold font-montserrat text-black mb-4 uppercase px-2">
+            SCHEDULE YOUR <span className="italic font-medium font-playfair text-black">SERVICE</span> TODAY
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-            Premium vehicle <span className="font-semibold">wraps, decals, chrome deletes, and tints</span> in Kissimmee, FL.
-            We use high‑quality materials and precise installation for a flawless, long‑lasting finish.
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-inter px-4">
+            Residential & Commercial Roofing Services in DFW.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact Form */}
-          <div className="lg:col-span-2 reveal-on-scroll opacity-0 translate-y-6 will-change-transform">
-            <Card className="card-automotive">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <Calendar className="h-6 w-6 text-primary mr-3" />
-                  Request Your Wrap/Tint/Decal Quote
-                </h3>
-                
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Full Name *
-                      </label>
-                      <Input 
-                        placeholder="Your name"
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Phone Number *
-                      </label>
-                      <Input 
-                        placeholder="+1 (407) xxx-xxxx"
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
-                    </label>
-                    <Input 
-                      type="email"
-                      placeholder="your.email@example.com"
-                      className="bg-muted border-border focus:border-primary"
-                    />
-                  </div>
+          {/* Left Column: Contact Info */}
+          <div className="space-y-8 animate-slide-up opacity-0 translate-y-12 transition-all duration-700">
 
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Service Needed *
-                    </label>
-                    <select className="w-full p-3 bg-muted border border-border rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-                      <option value="">Select a service</option>
-                      {serviceTypes.map((service) => (
-                        <option key={service} value={service}>{service}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Vehicle Make & Model
-                      </label>
-                      <Input 
-                        placeholder="e.g., BMW 3 Series"
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Vehicle Year
-                      </label>
-                      <Input 
-                        placeholder="e.g., 2022"
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Desired Color / Finish (Wrap/Tint)
-                      </label>
-                      <Input 
-                        placeholder="e.g., Satin Black, 35% tint, etc."
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Decal Placement (if applicable)
-                      </label>
-                      <Input 
-                        placeholder="e.g., doors, hood, rear window, etc."
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Budget Range
-                      </label>
-                      <Input 
-                        placeholder="$ - $$$"
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Preferred Date
-                      </label>
-                      <Input 
-                        type="date"
-                        className="bg-muted border-border focus:border-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Service Location *
-                    </label>
-                    <Input 
-                      placeholder="Address in Kissimmee (or Central Florida) where service will be performed"
-                      className="bg-muted border-border focus:border-primary"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Additional Details
-                    </label>
-                    <Textarea 
-                      placeholder="Tell us about your vehicle's condition, specific needs, or any questions..."
-                      rows={4}
-                      className="bg-muted border-border focus:border-primary"
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="w-full btn-primary text-lg py-6"
-                  >
-                    <Car className="mr-2 h-5 w-5" />
-                    Get My Free Quote
-                  </Button>
-                </form>
-
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-6">
-            {/* Contact Methods */}
-            <div className="space-y-4 reveal-on-scroll opacity-0 translate-y-6 will-change-transform">
-              {contactMethods.map((method, index) => {
-                const IconComponent = method.icon;
-                return (
-                  <div 
-                    key={index} 
-                    className={`flex items-center space-x-3 p-4 rounded-lg bg-card text-foreground hover:bg-secondary transition-colors cursor-pointer ${method.action ? 'hover:bg-secondary' : ''}`}
-                    onClick={() => method.action && handleContactClick(method.action)}
-                  >
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="h-5 w-5 text-primary" />
-                    </div>
-                    <span className="text-foreground font-medium">{method.text}</span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Business Hours */}
-            <Card className="card-automotive reveal-on-scroll opacity-0 translate-y-6 will-change-transform">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                  <Clock className="h-5 w-5 text-primary mr-3" />
-                  Business Hours
-                </h3>
-                <div className="space-y-3">
-                  {businessHours.map((schedule, index) => (
-                    <div key={index} className="flex justify-between items-center">
-                      <span className="text-muted-foreground">{schedule.day}</span>
-                      <span className="text-foreground font-medium">{schedule.hours}</span>
-                    </div>
-                  ))}
+            <div className="bg-white rounded-xl shadow-elegant border border-gray-100 p-6 sm:p-8">
+              <h3 className="text-2xl font-bold font-montserrat mb-6">Contact Us 👋</h3>
+              <div className="space-y-6 mb-8">
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Phone 📞</h4>
+                  <p className="text-gray-600">(469) 785-3148</p>
+                  <p className="text-gray-600">(469) 226-4198</p>
                 </div>
-                <div className="mt-4 pt-4 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground">
-                    Emergency services available by appointment
-                  </p>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Email ✉️</h4>
+                  <p className="text-gray-600">contact@alturaroofing.com</p>
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Location 📍</h4>
+                  <p className="text-gray-600">327 South Jupiter Road, Allen, TX</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Service Area 🗺️</h4>
+                  <p className="text-gray-600">DFW & Surrounding Areas</p>
+                </div>
+              </div>
 
-            {/* Quick Actions */}
-            <div className="space-y-3 reveal-on-scroll opacity-0 translate-y-6 will-change-transform">
-              <Button 
-                size="lg" 
-                className="btn-primary text-lg px-8 py-6 flex items-center justify-center w-full"
-                onClick={() => handleContactClick("tel:+1407xxxxxxx")}
+              <Button
+                onClick={() => window.location.href = 'tel:4697853148'}
+                className="w-full bg-secondary hover:bg-secondary/90 text-white text-lg py-6 font-bold uppercase tracking-wider shadow-lg shadow-secondary/25"
               >
-                <Phone className="mr-2 h-5 w-5" />
-                Call Now
+                CALL NOW
               </Button>
             </div>
+
+          </div>
+
+          {/* Right Column: Contact Form */}
+          <div className="bg-white rounded-2xl shadow-elegant border border-gray-100 p-6 sm:p-10 animate-slide-up opacity-0 translate-y-12 transition-all duration-700 delay-200">
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-gray-900">Request Service / Quote</h3>
+              <p className="text-gray-500 text-sm mt-1">Fill out the details below and we'll get back to you shortly.</p>
+            </div>
+
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-semibold text-black mb-2">
+                    Name <span className="text-primary">*</span>
+                  </label>
+                  <Input
+                    placeholder="Your Name"
+                    className="bg-slate-50 border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
+                    required
+                  />
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label className="block text-sm font-semibold text-black mb-2">
+                    Phone <span className="text-primary">*</span>
+                  </label>
+                  <Input
+                    type="tel"
+                    placeholder="(555) 000-0000"
+                    className="bg-slate-50 border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Email <span className="text-primary">*</span>
+                </label>
+                <Input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
+                  required
+                />
+              </div>
+
+              {/* Area/City */}
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Your Area <span className="text-primary">*</span>
+                </label>
+                <select
+                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  required
+                >
+                  <option value="">Select your area</option>
+                  {dfwAreas.map((area) => (
+                    <option key={area} value={area}>{area}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Property Type */}
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Property Type <span className="text-primary">*</span>
+                </label>
+                <select
+                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  required
+                >
+                  <option value="">Select property type</option>
+                  {propertyTypes.map((type) => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Service Needed */}
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Service Needed <span className="text-primary">*</span>
+                </label>
+                <select
+                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  required
+                >
+                  <option value="">Select a service</option>
+                  {serviceOptions.map((service) => (
+                    <option key={service} value={service}>{service}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Urgency Level */}
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Urgency <span className="text-primary">*</span>
+                </label>
+                <select
+                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  required
+                >
+                  <option value="">How urgent is this?</option>
+                  {urgencyLevels.map((level) => (
+                    <option key={level} value={level}>{level}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Project Details <span className="text-primary">*</span>
+                </label>
+                <Textarea
+                  placeholder="Please describe your roofing needs, any visible damage, and when you'd like the work done..."
+                  className="bg-slate-50 border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base min-h-[120px]"
+                  required
+                />
+              </div>
+
+              {/* Preferred Contact Method */}
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Preferred Contact Method
+                </label>
+                <div className="flex gap-4">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="contact-method" value="phone" className="w-4 h-4 text-primary" defaultChecked />
+                    <span className="text-sm text-gray-700">Phone</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="contact-method" value="email" className="w-4 h-4 text-primary" />
+                    <span className="text-sm text-gray-700">Email</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="contact-method" value="text" className="w-4 h-4 text-primary" />
+                    <span className="text-sm text-gray-700">Text</span>
+                  </label>
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-primary hover:bg-primary/90 text-white px-8 py-5 rounded-md font-bold text-base sm:text-lg transition-all duration-300 shadow-lg"
+              >
+                GET FREE QUOTE →
+              </Button>
+              <p className="text-center text-xs text-gray-500 mt-2">
+                We typically respond within 2 hours during business hours
+              </p>
+            </form>
           </div>
         </div>
       </div>
