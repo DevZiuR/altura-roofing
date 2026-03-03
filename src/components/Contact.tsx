@@ -55,7 +55,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" className="pb-20 lg:pb-32 pt-10 lg:pt-16 bg-slate-50 relative overflow-hidden">
+    <section id="contact" className="pb-20 lg:pb-32 pt-10 lg:pt-16 bg-white relative overflow-hidden">
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -77,7 +77,7 @@ const Contact = () => {
           {/* Left Column: Contact Info */}
           <div className="space-y-8 animate-slide-up opacity-0 translate-y-12 transition-all duration-700">
 
-            <div className="bg-white rounded-xl shadow-elegant border border-gray-100 p-6 sm:p-8">
+            <div className="bg-gray-100 rounded-xl shadow-elegant border border-gray-200 p-6 sm:p-8">
               <h3 className="text-2xl font-bold font-montserrat mb-6">Contact Us 👋</h3>
               <div className="space-y-6 mb-8">
                 <div>
@@ -110,7 +110,7 @@ const Contact = () => {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="bg-white rounded-2xl shadow-elegant border border-gray-100 p-6 sm:p-10 animate-slide-up opacity-0 translate-y-12 transition-all duration-700 delay-200">
+          <div className="bg-gray-100 rounded-2xl shadow-elegant border border-gray-200 p-6 sm:p-10 animate-slide-up opacity-0 translate-y-12 transition-all duration-700 delay-200">
             <div className="mb-6">
               <h3 className="text-xl font-bold text-gray-900">Request Service / Quote</h3>
               <p className="text-gray-500 text-sm mt-1">Fill out the details below and we'll get back to you shortly.</p>
@@ -125,7 +125,7 @@ const Contact = () => {
                   </label>
                   <Input
                     placeholder="Your Name"
-                    className="bg-slate-50 border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
+                    className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
                     required
                   />
                 </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                   <Input
                     type="tel"
                     placeholder="(555) 000-0000"
-                    className="bg-slate-50 border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
+                    className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
                     required
                   />
                 </div>
@@ -163,7 +163,7 @@ const Contact = () => {
                   Your Area <span className="text-primary">*</span>
                 </label>
                 <select
-                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  className="w-full p-3 bg-white border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
                   required
                 >
                   <option value="">Select your area</option>
@@ -179,7 +179,7 @@ const Contact = () => {
                   Property Type <span className="text-primary">*</span>
                 </label>
                 <select
-                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  className="w-full p-3 bg-white border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
                   required
                 >
                   <option value="">Select property type</option>
@@ -195,7 +195,7 @@ const Contact = () => {
                   Service Needed <span className="text-primary">*</span>
                 </label>
                 <select
-                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  className="w-full p-3 bg-white border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
                   required
                 >
                   <option value="">Select a service</option>
@@ -211,7 +211,7 @@ const Contact = () => {
                   Urgency <span className="text-primary">*</span>
                 </label>
                 <select
-                  className="w-full p-3 bg-slate-50 border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
+                  className="w-full p-3 bg-white border border-gray-300 text-black rounded-md focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
                   required
                 >
                   <option value="">How urgent is this?</option>
@@ -228,7 +228,7 @@ const Contact = () => {
                 </label>
                 <Textarea
                   placeholder="Please describe your roofing needs, any visible damage, and when you'd like the work done..."
-                  className="bg-slate-50 border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base min-h-[120px]"
+                  className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary focus:ring-primary/20 text-sm sm:text-base min-h-[120px]"
                   required
                 />
               </div>

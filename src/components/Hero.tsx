@@ -37,10 +37,9 @@ const Hero = () => {
             <span className="inline-block text-primary font-bold tracking-wide text-sm font-inter uppercase mb-2">
               Expert Roofing Services for Your Home
             </span>
-            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl font-bold font-montserrat leading-[1.1] text-black uppercase">
-              RELIABLE DFW ROOFING <br />
-              <span className="italic font-playfair font-medium whitespace-nowrap">SOLUTIONS —</span> <br />
-              FOR <span className="italic font-playfair font-medium">DURABILITY</span> & STYLE.
+            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-[1.1] text-black uppercase">
+              <span className="italic font-playfair font-medium whitespace-nowrap">DFW'S</span> <span className="text-primary">MOST TRUSTED</span> <br />
+              <span className="italic font-playfair font-medium whitespace-nowrap">ROOFING EXPERTS</span>
             </h1>
           </div>
 

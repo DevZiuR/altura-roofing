@@ -43,6 +43,19 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <script>
+    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Mh72OwDvNyLVwkzsKUFV5"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+  </script>
+  <style>
+    /* Move Chatbase widget up to avoid overlapping with fixed mobile buttons */
+    #chatbase-bubble,
+    #chatbase-message-bubble,
+    #chatbase-bubble-button,
+    #chatbase-bubble-window,
+    iframe[id^="chatbase"] {
+      bottom: 110px !important;
+    }
+  </style>
 </body>
 
 </html>
