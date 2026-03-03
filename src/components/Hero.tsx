@@ -37,7 +37,7 @@ const Hero = () => {
             <span className="inline-block text-primary font-bold tracking-wide text-sm font-inter uppercase mb-2">
               Expert Roofing Services for Your Home
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-[1.1] text-black uppercase">
+            <h1 className="text-[42px] sm:text-[46px] md:text-6xl lg:text-7xl font-bold font-montserrat leading-[1.1] text-black uppercase">
               <span className="italic font-playfair font-medium whitespace-nowrap">DFW'S</span> <span className="text-primary">MOST TRUSTED</span> <br />
               <span className="italic font-playfair font-medium whitespace-nowrap">ROOFING EXPERTS</span>
             </h1>

@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <footer id="footer" className="bg-[#151515] text-white pt-24 pb-8 border-t border-gray-900 font-inter">
+    <footer id="footer" className="bg-black text-white pt-24 pb-8 border-t border-gray-900 font-inter">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 
         {/* Top CTA Section */}
