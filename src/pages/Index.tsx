@@ -14,7 +14,7 @@ import MobileCTA from "@/components/MobileCTA";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background pb-24 lg:pb-0">
+    <div className="min-h-screen bg-background">
       <Header />
       <main>
         <RevealOnScroll animation="fade-in">

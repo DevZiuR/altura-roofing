@@ -19,12 +19,12 @@ const About = () => {
             <span className="inline-block px-4 py-2 bg-primary/20 text-white rounded-full text-xs sm:text-sm font-medium mb-4">
               WELCOME TO ALTURA ROOFING | DFW
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat text-white mb-4 sm:mb-6 uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat text-white mb-8 sm:mb-10 uppercase">
               ELEVATING THE STANDARD OF <br /><span className="italic font-medium font-playfair text-white">ROOFING EXCELLENCE</span>
             </h2>
 
             {/* Mobile Image - Below Heading */}
-            <div className="lg:hidden relative rounded-xl overflow-hidden shadow-2xl w-[85%] mx-auto mb-8 h-[250px] sm:h-[350px]">
+            <div className="lg:hidden relative rounded-xl overflow-hidden shadow-2xl w-[92%] mx-auto mt-6 mb-10 h-[260px] sm:h-[350px]">
               <img
                 src="https://i.imgur.com/M9xK214.jpeg"
                 alt="Altura Roofing"
@@ -38,7 +38,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="prose prose-lg mb-6 sm:mb-8 text-gray-300">
+            <div className="prose prose-lg mb-10 sm:mb-12 text-gray-300 flex flex-col gap-4">
               <p className="mb-4">
                 <strong>Altura Roofing</strong> is committed to clear communication, outstanding customer care, and expert roofing solutions, offering both insurance claim expertise and simple, no-pressure cash options.
               </p>
