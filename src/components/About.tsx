@@ -26,7 +26,7 @@ const About = () => {
             {/* Mobile Image - Below Heading */}
             <div className="lg:hidden relative rounded-xl overflow-hidden shadow-2xl w-[92%] mx-auto mt-6 mb-10 h-[260px] sm:h-[350px]">
               <img
-                src={aboutImg}
+                src="https://i.imgur.com/M9xK214.jpeg"
                 alt="Altura Roofing"
                 className="w-full h-full object-cover rounded-xl"
               />
@@ -63,7 +63,7 @@ const About = () => {
           {/* Image */}
           <div className="hidden lg:block relative rounded-xl overflow-hidden shadow-2xl h-full min-h-[400px]">
             <img
-              src={aboutImg}
+              src="https://i.imgur.com/M9xK214.jpeg"
               alt="Altura Roofing"
               className="w-full h-full object-cover rounded-xl"
             />

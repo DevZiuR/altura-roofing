@@ -2,12 +2,6 @@ import { useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight, Send } from "lucide-react";
-import gallery1 from "../assets/gallery-1.jpeg";
-import gallery2 from "../assets/gallery-2.jpeg";
-import gallery3 from "../assets/gallery-3.jpeg";
-import gallery4 from "../assets/gallery-4.jpeg";
-import gallery5 from "../assets/gallery-5.jpeg";
-import gallery6 from "../assets/gallery-6.jpeg";
 
 const Gallery = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
@@ -16,37 +10,37 @@ const Gallery = () => {
 
   const projects = [
     {
-      src: gallery1,
+      src: "https://i.imgur.com/WbfsJQq.png",
       title: "Recent Roof Replacement",
       description: "Complete roof replacement ensuring long-term protection.",
       type: "image"
     },
     {
-      src: gallery2,
+      src: "https://i.imgur.com/Nn21Plk.png",
       title: "Storm Damage Repair",
       description: "Restored roof after severe storm damage.",
       type: "image"
     },
     {
-      src: gallery3,
+      src: "https://i.imgur.com/Amr1Su6.png",
       title: "New Roof Installation",
       description: "High quality materials for a stunning new look.",
       type: "image"
     },
     {
-      src: gallery4,
+      src: "https://i.imgur.com/aHrJ4Jd.png",
       title: "Insurance Claim Project",
       description: "Seamless insurance claim process and execution.",
       type: "image"
     },
     {
-      src: gallery5,
+      src: "https://i.imgur.com/dDyytMR.png",
       title: "Detailed Inspection",
       description: "Thorough inspection ensuring no issue goes unnoticed.",
       type: "image"
     },
     {
-      src: gallery6,
+      src: "https://i.imgur.com/USYuohd.png",
       title: "Quality Craftsmanship",
       description: "Expert installation by our dedicated team.",
       type: "image"

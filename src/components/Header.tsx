@@ -75,7 +75,7 @@ const Header = () => {
             {/* Logo Section */}
             <div className="flex items-center px-6 border-r border-white/20 cursor-pointer" onClick={() => scrollToSection("home")}>
               <img
-                src="/images/logo.png"
+                src="https://i.imgur.com/5wZAar4.jpeg"
                 alt="Altura Roofing"
                 className="h-10 sm:h-12 w-auto object-contain transition-all duration-300"
               />
@@ -167,7 +167,7 @@ const Header = () => {
           <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
             <div className="flex items-center cursor-pointer" onClick={() => { setIsOpen(false); scrollToSection("home"); }}>
               <img
-                src="/images/logo.png"
+                src="https://i.imgur.com/5wZAar4.jpeg"
                 alt="Altura Roofing"
                 className="h-10 w-auto object-contain"
               />
