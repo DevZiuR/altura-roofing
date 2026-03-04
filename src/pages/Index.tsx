@@ -8,6 +8,7 @@ import EmergencyCall from "@/components/EmergencyCall";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
 import MobileCTA from "@/components/MobileCTA";
@@ -38,6 +39,9 @@ const Index = () => {
         <Reviews />
         <RevealOnScroll animation="slide-up">
           <Contact />
+        </RevealOnScroll>
+        <RevealOnScroll animation="slide-up">
+          <FAQ />
         </RevealOnScroll>
       </main>
       <Footer />

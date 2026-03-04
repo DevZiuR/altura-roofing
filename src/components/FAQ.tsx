@@ -1,122 +1,85 @@
-import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
-
-interface FAQItem {
-    id: number;
-    question: string;
-    answer: string;
-}
-
-const faqs: FAQItem[] = [
-    {
-        id: 1,
-        question: "Do you service all BMW models?",
-        answer: "Yes, we specialize in all BMW models, from classic E-chassis to the modern F and G-series. Whether you have a 3-Series, X5, or an M-car, we have the tools and expertise to service it."
-    },
-    {
-        id: 2,
-        question: "What is your service area?",
-        answer: "We are a mobile service covering Miami, Broward, and Palm Beach counties. We come directly to your home or office for your convenience."
-    },
-    {
-        id: 3,
-        question: "How does mobile service work?",
-        answer: "It's simple! You schedule an appointment, and we arrive fully equipped to diagnose and repair your vehicle on-site. For most repairs, including brakes, extensive diagnostics, and coding, we can do it right in your driveway."
-    },
-    {
-        id: 4,
-        question: "Are you factory certified?",
-        answer: "Yes, Daniel is a BMW Factory-Trained Technician with years of dealership experience. You get the same level of expertise as the dealer, but with more personal attention and better pricing."
-    },
-    {
-        id: 5,
-        question: "Do you offer warranties?",
-        answer: "Absolutely. We stand behind our work. All repairs come with a warranty on parts and labor. We use OEM or high-quality equivalent parts to ensure reliability."
-    }
-];
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
+import { MessageCircleQuestion } from "lucide-react";
 
 const FAQ = () => {
-    const [openId, setOpenId] = useState<number | null>(1); // First FAQ open by default
-
-    const toggleFAQ = (id: number) => {
-        setOpenId(openId === id ? null : id);
-    };
+    const faqs = [
+        {
+            question: "What should I look for when hiring a roofing contractor?",
+            answer: "Look for licensed, insured, and experienced professionals who offer clear communication and transparent pricing. Altura Roofing combines industry expertise with top-notch customer care to guarantee a job well done on your home or commercial building."
+        },
+        {
+            question: "What areas do you serve?",
+            answer: "We proudly serve the entire DFW Metroplex, including Allen, Arlington, Dallas, Fort Worth, Frisco, McKinney, Plano, and surrounding neighborhoods."
+        },
+        {
+            question: "Do you help with insurance claims for storm damage?",
+            answer: "Yes! Dealing with an insurance claim can be overwhelming. We have extensive experience assisting homeowners with the paperwork and documentation needed to make sure your damages are properly covered."
+        },
+        {
+            question: "How do I know if I need a full roof replacement or just a repair?",
+            answer: "The best way is to let us perform a thorough, no-obligation inspection. We evaluate the age of the roof, the extent of the damage (such as missing shingles or a leak), and present you with honest, clear options."
+        },
+        {
+            question: "Do you offer a warranty on your roofing work?",
+            answer: "Absolutely. All of our work comes with a warranty. We stand by our craftsmanship and use premium roofing materials so you feel completely secure that your investment is protected."
+        },
+        {
+            question: "Do you provide emergency roofing services?",
+            answer: "Yes, we are available 24/7 for emergency service. If your roof suffers sudden storm damage or a serious leak, call us and we will promptly dispatch a professional to assess the situation."
+        }
+    ];
 
     return (
-        <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <section className="py-20 lg:py-28 bg-white border-t border-gray-100">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-12 sm:mb-16">
-                    <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-4">
-                        FAQ
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-montserrat text-black mb-4 uppercase px-2">
-                        COMMON <span className="italic font-medium font-playfair text-black">QUESTIONS</span>
-                    </h2>
-                    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-inter px-4">
-                        Everything you need to know about our mobile BMW services
-                    </p>
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
 
-                {/* FAQ Accordion */}
-                <div className="max-w-4xl mx-auto">
-                    <div className="space-y-3 sm:space-y-4">
-                        {faqs.map((faq, index) => (
-                            <div
-                                key={faq.id}
-                                className="border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-md"
+                    {/* Left Column: Heading & Intro */}
+                    <div className="lg:col-span-5 space-y-8">
+                        <div className="inline-block px-3 py-1 border border-primary/20 bg-primary/5 rounded-full">
+                            <span className="text-primary font-bold tracking-widest text-xs uppercase font-inter">FAQ</span>
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl font-bold font-montserrat text-[#161616] leading-tight">
+                            Frequently Asked <br />Questions
+                        </h2>
+
+                        <div className="pt-8">
+                            <h4 className="text-lg font-bold font-montserrat text-gray-900 mb-2">Have different questions?</h4>
+                            <p className="text-gray-600 font-inter mb-4">
+                                If you can't find the answer you're looking for, please don't hesitate to reach out to our team.
+                            </p>
+                            <a
+                                href="#contact"
+                                className="inline-flex items-center gap-2 text-primary font-bold font-montserrat hover:underline text-lg"
                             >
-                                <button
-                                    onClick={() => toggleFAQ(faq.id)}
-                                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left bg-white hover:bg-gray-50 transition-colors duration-200"
-                                    aria-expanded={openId === faq.id}
-                                >
-                                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-black pr-4 sm:pr-8">
-                                        {faq.question}
-                                    </h3>
-                                    <div
-                                        className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 ${openId === faq.id ? "rotate-180 bg-primary" : ""
-                                            }`}
-                                    >
-                                        {openId === faq.id ? (
-                                            <Minus className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
-                                        ) : (
-                                            <Plus className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                                        )}
-                                    </div>
-                                </button>
-
-                                <div
-                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${openId === faq.id ? "max-h-96" : "max-h-0"
-                                        }`}
-                                >
-                                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2">
-                                        <div className="border-t border-gray-100 pt-4">
-                                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                                                {faq.answer}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                                <MessageCircleQuestion className="w-5 h-5" />
+                                Contact Support
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                {/* Optional CTA */}
-                <div className="text-center mt-8 sm:mt-12 px-4">
-                    <p className="text-sm sm:text-base text-gray-600 mb-4">Still have questions?</p>
-                    <button
-                        onClick={() => {
-                            const contactSection = document.querySelector("#contact");
-                            if (contactSection) {
-                                contactSection.scrollIntoView({ behavior: "smooth" });
-                            }
-                        }}
-                        className="text-sm sm:text-base text-primary hover:text-primary/80 font-semibold transition-colors duration-200 underline underline-offset-4"
-                    >
-                        Contact us for more information
-                    </button>
+                    {/* Right Column: Accordion */}
+                    <div className="lg:col-span-7">
+                        <Accordion type="single" collapsible className="w-full">
+                            {faqs.map((faq, index) => (
+                                <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200 last:border-0 px-2">
+                                    <AccordionTrigger className="text-lg sm:text-xl font-bold font-montserrat text-gray-900 hover:text-primary transition-colors text-left py-6">
+                                        {faq.question}
+                                    </AccordionTrigger>
+                                    <AccordionContent className="text-gray-600 font-inter text-base leading-relaxed pb-6">
+                                        {faq.answer}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                    </div>
+
                 </div>
             </div>
         </section>
