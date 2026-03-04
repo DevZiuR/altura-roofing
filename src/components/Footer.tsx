@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Column 1: Logo & Description */}
           <div className="flex flex-col space-y-8">
             <div className="space-y-6">
-              <img src="https://i.imgur.com/5wZAar4.jpeg" alt="Altura Roofing" className="h-16 w-auto object-contain" />
+              <img src="/images/logo.png" alt="Altura Roofing" className="h-16 w-auto object-contain" />
               <p className="text-gray-300 text-sm leading-relaxed max-w-xs pt-2">
                 Expert Roofing Services for Residential and Commercial Projects.
               </p>

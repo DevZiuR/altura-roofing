@@ -1,21 +1,24 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import service1 from "../assets/service-1.png";
+import service2 from "../assets/service-2.png";
+import service3 from "../assets/service-3.png";
 
 const Services = () => {
   const services = [
     {
-      image: "https://i.imgur.com/X9OxfTX.png",
+      image: service1,
       title: "Roof Replacement & Repairs",
       description: "We provide expert roof replacement and repairs for all types of storms and damage. Ensuring your home is safe and secure."
     },
     {
-      image: "https://i.imgur.com/gGn3Ofk.png",
+      image: service2,
       title: "Storm Damage & Insurance Claims",
       description: "We specialize in handling storm damage and insurance claims to get you the best possible outcome. We work directly with your insurance to ensure a smooth process."
     },
     {
-      image: "https://i.imgur.com/dDyytMR.png",
+      image: service3,
       title: "Emergency Roof Repairs",
       description: "24/7 emergency roofing services for urgent repairs. We respond quickly to protect your home from further damage and provide immediate solutions."
     }

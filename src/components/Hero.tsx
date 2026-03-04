@@ -77,7 +77,7 @@ const Hero = () => {
         <div className="w-full h-[400px] md:h-[500px]">
           <div className="relative rounded-2xl overflow-hidden group h-full">
             <img
-              src="https://i.imgur.com/WbfsJQq.png"
+              src={hero1}
               alt="Altura Roofing"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 object-center"
             />
