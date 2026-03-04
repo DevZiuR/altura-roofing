@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-16 border-b border-gray-800">
           <div className="max-w-xl">
             <h2 className="text-4xl md:text-5xl font-medium mb-10 leading-tight">
-              Looking for expert roofing services?
+              Looking for  <span className="italic font-medium text-white">expert roofing</span> services?
             </h2>
             <button
               onClick={() => scrollToSection('contact')}

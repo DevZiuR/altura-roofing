@@ -31,10 +31,10 @@ const Index = () => {
           <Gallery />
         </RevealOnScroll>
         <RevealOnScroll animation="slide-up">
-          <Locations />
+          <EmergencyCall />
         </RevealOnScroll>
         <RevealOnScroll animation="slide-up">
-          <EmergencyCall />
+          <Locations />
         </RevealOnScroll>
         <Reviews />
         <RevealOnScroll animation="slide-up">
