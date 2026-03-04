@@ -25,8 +25,8 @@ const Locations = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-                    {/* Left Side: Map Overlay */}
-                    <RevealOnScroll animation="fade-in" className="lg:sticky lg:top-32">
+                    {/* Left Side: Map Overlay (Desktop Only) */}
+                    <RevealOnScroll animation="fade-in" className="hidden lg:block lg:sticky lg:top-32">
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 group">
                             <img
                                 src="/images/dfw-map.png"
@@ -49,6 +49,21 @@ const Locations = () => {
                                 DFW'S <span className="italic font-playfair font-medium">NEIGHBORHOODS</span> <br />
                                 WE PROUDLY <span className="italic font-playfair font-medium">SERVE</span>
                             </h2>
+                        </RevealOnScroll>
+
+                        {/* Mobile Map Outline */}
+                        <RevealOnScroll animation="fade-in" className="lg:hidden mb-10">
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 group">
+                                <img
+                                    src="/images/dfw-map.png"
+                                    alt="DFW Service Area Map"
+                                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20 shadow-sm flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                                    <span className="text-xs font-bold uppercase tracking-wider text-black">Service Area Active</span>
+                                </div>
+                            </div>
                         </RevealOnScroll>
 
                         {/* Neighborhood List Grid */}
