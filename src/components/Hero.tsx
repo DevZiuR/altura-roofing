@@ -39,7 +39,7 @@ const Hero = () => {
             </span>
             <h1 className="text-[42px] sm:text-[46px] md:text-6xl lg:text-7xl font-bold font-montserrat leading-[1.1] text-black uppercase">
               <span className="italic font-playfair font-medium whitespace-nowrap">DFW'S</span> <span className="text-primary">MOST TRUSTED</span> <br />
-              <span className="italic font-playfair font-medium whitespace-nowrap">LOCAL ROOFING EXPERTS</span>
+              <span className="italic font-playfair font-medium whitespace-nowrap">LOCAL ROOFING <br /> EXPERTS</span>
             </h1>
           </div>
 

@@ -121,7 +121,7 @@ const Footer = () => {
         <div className="pt-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-inter">
           <p>© {new Date().getFullYear()} Altura Roofing. All Rights Reserved.</p>
           <div className="flex gap-6">
-            <span>Powered by Altura</span>
+            <span>Powered by ZiuR studio</span>
           </div>
         </div>
 
